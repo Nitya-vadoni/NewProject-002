@@ -10,8 +10,7 @@ pipeline {
             steps {
                 sh 'docker build -f Dockerfile-Nodejs -t $NODE_IMAGE .'
                 sh 'docker build -f Dockerfile-Nginx -t $NGINX_IMAGE .'
-              
-            }
+              }
         }
       
         stage('login to Dockerhub') {
@@ -21,7 +20,7 @@ pipeline {
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
             }
             }
-        
+        }
         stage('Push the images to Dockerhub') {
             steps {
                 sh 'docker push $NODE_IMAGE .'
