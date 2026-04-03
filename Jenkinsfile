@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Building docker images') {
             steps {
-                sh 'docker build -f Dockerfile-Nodejs -t $NODE_IMAGE .'
-                sh 'docker build -f Dockerfile-Nginx -t $NGINX_IMAGE .'
+                sh 'docker build -f Dockerfile-Nodejs -t ${NODE_IMAGE} .'
+                sh 'docker build -f Dockerfile-Nginx -t ${NGINX_IMAGE} .'
               }
         }
       
