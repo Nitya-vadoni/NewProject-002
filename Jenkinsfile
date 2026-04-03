@@ -23,8 +23,8 @@ pipeline {
         }
         stage('Push the images to Dockerhub') {
             steps {
-                sh 'docker push $NODE_IMAGE .'
-                sh 'docker push $NGINX_IMAGE .'
+                sh 'docker push $NODE_IMAGE'
+                sh 'docker push $NGINX_IMAGE'
               
             }
         }
