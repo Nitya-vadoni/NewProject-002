@@ -20,6 +20,7 @@ pipeline {
                 usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
             }
+            }
         }
         stages {
         stage('Push the images to Dockerhub') {
@@ -29,6 +30,6 @@ pipeline {
               
             }
         }
-        }
+        
     }
 }
