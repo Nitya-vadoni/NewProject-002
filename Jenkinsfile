@@ -13,7 +13,7 @@ pipeline {
               
             }
         }
-      stages {
+      
         stage('login to Dockerhub') {
             steps {
                  withCredentials([usernamePassword(credentialsId: 'dockerhub_cred',
@@ -21,8 +21,7 @@ pipeline {
                     sh 'echo $PASS | docker login -u $USER --password-stdin'
             }
             }
-        }
-        stages {
+        
         stage('Push the images to Dockerhub') {
             steps {
                 sh 'docker push $NODE_IMAGE .'
@@ -30,6 +29,6 @@ pipeline {
               
             }
         }
-        }
+        
     }
 }
